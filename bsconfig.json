@@ -1,7 +1,7 @@
 {
   "name": "react-template",
   "reason": { "react-jsx": 2 },
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": ["reason-react", "bs-spectacle"],
   "bsc-flags": ["-bs-super-errors"],
   "package-specs": [
     {

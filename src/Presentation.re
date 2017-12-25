@@ -1,14 +1,17 @@
-open Spectacle;
+open BsSpectacle;
 
 let component = ReasonReact.statelessComponent("Presentation");
 
 let theme =
-  createTheme(
-    {primary: "#db4d3f", secondary: "black", tertiary: "white", quarternary: "white"},
-    {
-      primary: {name: "Roboto Slab", googleFont: true, styles: [|"300"|]},
-      secondary: {name: "Roboto", googleFont: true, styles: [|"300"|]}
-    }
+  Theme.(
+    createTheme(
+      {primary: "#db4d3f", secondary: "black", tertiary: "white", quarternary: "white"},
+      {
+        primary: {name: "Roboto Slab", googleFont: true, styles: [|"300"|]},
+        secondary: {name: "Roboto", googleFont: true, styles: [|"300"|]},
+        tertiary: simpleFont("monospace")
+      }
+    )
   );
 
 let s = ReasonReact.stringToElement;
@@ -48,7 +51,7 @@ let make = (_children) => {
         </Layout>
       </Slide>
       <Slide bgColor="tertiary">
-        <Image src="/images/functional-programming.jpg" height="700" alt="functionl programming" />
+        <Image src="images/functional-programming.jpg" height="700" alt="functionl programming" />
       </Slide>
       <Slide bgColor="tertiary">
         <Heading textColor="primary"> "Types are useful" </Heading>
@@ -93,7 +96,7 @@ let make = (_children) => {
           </Appear>
         </List>
       </Slide>
-      <Slide bgColor="tertiary"> <Image src="/images/bloomberg.png" alt="Bloomberg" /> </Slide>
+      <Slide bgColor="tertiary"> <Image src="images/bloomberg.png" alt="Bloomberg" /> </Slide>
       <Slide bgColor="#ab5ea3"> <Heading> "BuckleScript" </Heading> </Slide>
       <Slide bgColor="tertiary">
         <Heading textColor="secondary"> "Compiles OCaml to JavaScript" </Heading>

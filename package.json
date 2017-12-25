@@ -19,8 +19,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bs-spectacle": "^0.1.1",
     "react": "15.6.0",
     "react-dom": "15.6.0",
+    "reason": "^3.0.2",
     "reason-react": "^0.3.0",
     "spectacle": "^4.0.4",
     "spectacle-code-slide": "^0.5.1",

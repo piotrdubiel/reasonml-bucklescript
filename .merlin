@@ -9,6 +9,8 @@ FLG -nostdlib -no-alias-deps -color always
 FLG -w -30-40+6+7+27+32..39+44+45+101
 S /Users/piotrekd/talks/reasonml-bucklescript/node_modules/reason-react/lib/ocaml
 B /Users/piotrekd/talks/reasonml-bucklescript/node_modules/reason-react/lib/ocaml
+S /Users/piotrekd/talks/reasonml-bucklescript/node_modules/bs-spectacle/lib/ocaml
+B /Users/piotrekd/talks/reasonml-bucklescript/node_modules/bs-spectacle/lib/ocaml
 S src
 B lib/bs/src
 S src/components
