@@ -19,7 +19,7 @@ let s = ReasonReact.stringToElement;
 let make = (_children) => {
   ...component,
   render: (_self) =>
-    <Deck progress=`bar theme>
+    <Deck progress=`bar theme transition=[|Slide|]>
       <Slide>
         <Heading> "ReasonML" </Heading>
         <Heading> "+" </Heading>
