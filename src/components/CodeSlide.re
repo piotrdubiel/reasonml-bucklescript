@@ -1,4 +1,4 @@
-[@bs.module] external codeSlideReactClass : ReasonReact.reactClass = "spectacle-code-slide";
+[@bs.module] external reactClass : ReasonReact.reactClass = "spectacle-code-slide";
 
 type range = {
   loc: (int, int),
@@ -8,19 +8,17 @@ type range = {
 
 let rangeToJs = (range: range) => {
   "loc": range.loc,
-  "title": Js.Null.from_opt(range.title),
-  "note": Js.Null.from_opt(range.note)
+  "title": Js.Null.fromOption(range.title),
+  "note": Js.Null.fromOption(range.note)
 };
 
-let make = (~lang: string, ~code: string, ~ranges: array(range), ~showLineNumbers=true, children) =>
+let mapRangesToJs = (rangesOpt) => Js.Option.map((. ranges) => Array.map(rangeToJs, ranges), rangesOpt);
+
+[@bs.obj] external makeProps : (~lang: string, ~code: string, ~transition: array(string), ~ranges: 'a=?, ~showLineNumbers: Js.boolean=?, unit) => _ = "";
+
+let make = (~lang: string, ~code: string, ~ranges: option(array(range))=?, ~showLineNumbers=?, children) =>
   ReasonReact.wrapJsForReason(
-    ~reactClass=codeSlideReactClass,
-    ~props={
-      "lang": lang,
-      "code": code,
-      "transition": [||],
-      "ranges": Array.map(rangeToJs, ranges),
-      "showLineNumbers": Js.Boolean.to_js_boolean(showLineNumbers)
-    },
+    ~reactClass,
+    ~props=makeProps(~lang, ~code, ~transition=[||], ~ranges=?mapRangesToJs(ranges), ~showLineNumbers?, ()),
     children
   );
